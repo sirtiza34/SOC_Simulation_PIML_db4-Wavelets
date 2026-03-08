@@ -1,4 +1,4 @@
-# SOC_Simulation_PIML_db4-Wavelets
+# $SOC_{stock}$_Simulation_PIML_db4-Wavelets
 Soil Organic Carbon (SOC) simulation under Shared Socioeconomic Pathways (SSP126, SSP245, SSP370 &amp; SSP585) using XGBoost-based Physics-informed Machine Learning (PIML) and Daubechies-4 wavelet decomposition.
 
 ## Repository Overview
@@ -13,15 +13,15 @@ The workflow consists of three major components:
    - Baseline and future datasets are generated for each grid cell using rolling temporal windows.
 
 2. **PIML Modelling and Simulation**
-   - SOC stock is modelled using XGBoost regression with monotonic constraints representing known soil–climate relationships.
-   - Bias correction is applied using smearing estimators and national SOC stock anchoring.
+   - $SOC_{stock}$ is modelled using XGBoost regression with monotonic constraints representing known soil–climate relationships.
+   - Bias correction is applied using smearing estimators and national $SOC_{stock}$ anchoring.
    - Ensemble modelling and quantile regression are used to quantify predictive uncertainty.
    - Model explainability is analysed using SHAP values.
 
-3. **SOC Projection and Temporal Analysis**
-   - The trained PIML model is used to generate SOC projections for SSP126, SSP245, SSP370, and SSP585 scenarios.
+3. **$SOC_{stock}$ Projection and Temporal Analysis**
+   - The trained PIML model is used to generate $SOC_{stock}$ projections for SSP126, SSP245, SSP370, and SSP585 scenarios.
    - Time-series signals are decomposed using Daubechies-4 wavelet decomposition.
-   - Long-term SOC trends are analysed using Mann–Kendall tests, Sen’s slope, generalized additive models (GAM), and breakpoint detection.
+   - Long-term $SOC_{stock}$ trends are analysed using Mann–Kendall tests, Sen’s slope, generalized additive models (GAM), and breakpoint detection.
 
 The scripts also generate all tables and figures used in the analysis, including uncertainty diagnostics, SHAP feature importance, and wavelet-derived trend trajectories.
 
@@ -29,32 +29,32 @@ The scripts also generate all tables and figures used in the analysis, including
 
 ### `S1_PIML_Modelling.ipynb`
 
-Builds the PIML model for SOC prediction.  
+Builds the PIML model for $SOC_{stock}$ prediction.  
 The script:
 
 - constructs baseline and future predictor datasets
 - trains constrained and unconstrained XGBoost models
-- applies bias correction and anchoring to match national SOC totals
+- applies bias correction and anchoring to match national $SOC_{stock}$ totals
 - quantifies prediction uncertainty using ensemble and quantile models
-- generates SOC projections for SSP scenarios
+- generates $SOC_{stock}$ projections for SSP scenarios
 - produces diagnostic plots, SHAP analysis, and learning curves
 
 ---
 
 ### `S2_Wavelet_Approximation.ipynb`
 
-Performs wavelet-based analysis of projected SOC trajectories.  
+Performs wavelet-based analysis of projected $SOC_{stock}$ trajectories.  
 The script:
 
-- decomposes SOC time series using Daubechies-4 wavelets
-- extracts low-frequency SOC trend signals (A3 and A5 approximations)
+- decomposes $SOC_{stock}$ time series using Daubechies-4 wavelets
+- extracts low-frequency $SOC_{stock}$ trend signals (A3 and A5 approximations)
 - detects structural breakpoints using the PELT algorithm
 - evaluates trend significance using Mann–Kendall tests and Sen’s slope
 - fits GAM smoothers to compare long-term trajectories
-- analyses regime-wise SOC sequestration rates
-- generates visualisations and statistical summaries of SOC trends.
+- analyses regime-wise $SOC_{stock}$ sequestration rates
+- generates visualisations and statistical summaries of $SOC_{stock}$ trends.
 
 ## Data Availability
-The datasets required to run the scripts are archived on Zenodo accessible at https://doi.org/10.5281/zenodo.18884892. The archive contains the processed spatial datasets used for SOC modelling, including climate forcings, LUH2 land-use forcings, and other static geo-environmental features required to reproduce the simulations.
+The datasets required to run the scripts are archived on Zenodo accessible at https://doi.org/10.5281/zenodo.18884892. The archive contains the processed spatial datasets used for $SOC_{stock}$ modelling and simluation, including climate forcings, LUH2 land-use forcings, and other static geo-environmental features required to reproduce the simulations.
 
 **Data Citation:** Majid, S. I. (2026). Geostatistical Dataset for Topsoil Organic Carbon Modelling in India Using CMIP6 Climate Projections and LUH2 Land Use Data [Data set]. Zenodo. https://doi.org/10.5281/zenodo.18884892
