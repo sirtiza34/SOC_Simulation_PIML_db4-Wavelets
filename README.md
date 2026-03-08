@@ -3,22 +3,22 @@ Soil Organic Carbon (SOC) simulation under Shared Socioeconomic Pathways (SSP126
 
 ## Repository Overview
 
-This repository contains Python scripts used to simulate and analyse future trajectories of soil organic carbon (SOC) stocks using a physics-informed machine learning (PIML) framework combined with wavelet-based time-series analysis.
+This repository contains Python scripts used to simulate and analyse future trajectories of $SOC_{stock}$ using a PIML framework combined with wavelet-based time-series analysis.
 
 The workflow consists of three major components:
 
-1. **Dataset construction**
+1. **Dataset Construction**
    - Spatial datasets (soil, land use, and climate variables) are integrated from multiple sources including LUH2 land-use projections and bias-corrected climate model outputs.
    - Multi-model ensemble climate variables are aggregated seasonally and annually.
    - Baseline and future datasets are generated for each grid cell using rolling temporal windows.
 
-2. **Physics-informed machine learning modelling**
+2. **PIML Modelling and Simulation**
    - SOC stock is modelled using XGBoost regression with monotonic constraints representing known soil–climate relationships.
    - Bias correction is applied using smearing estimators and national SOC stock anchoring.
    - Ensemble modelling and quantile regression are used to quantify predictive uncertainty.
    - Model explainability is analysed using SHAP values.
 
-3. **SOC projection and temporal analysis**
+3. **SOC Projection and Temporal Analysis**
    - The trained PIML model is used to generate SOC projections for SSP126, SSP245, SSP370, and SSP585 scenarios.
    - Time-series signals are decomposed using Daubechies-4 wavelet decomposition.
    - Long-term SOC trends are analysed using Mann–Kendall tests, Sen’s slope, generalized additive models (GAM), and breakpoint detection.
@@ -29,7 +29,7 @@ The scripts also generate all tables and figures used in the analysis, including
 
 ### `S1_PIML_Modelling.ipynb`
 
-Builds the physics-informed machine learning model for SOC prediction.  
+Builds the PIML model for SOC prediction.  
 The script:
 
 - constructs baseline and future predictor datasets
@@ -55,6 +55,6 @@ The script:
 - generates visualisations and statistical summaries of SOC trends.
 
 ## Data Availability
-The datasets required to run the scripts are archived on Zenodo accessible at https://doi.org/10.5281/zenodo.18884892. The archive contains the processed spatial datasets used for SOC modelling, including climate forcings, LUH2 land-use forcings, and other static geoenvironmental features required to reproduce the simulations.
+The datasets required to run the scripts are archived on Zenodo accessible at https://doi.org/10.5281/zenodo.18884892. The archive contains the processed spatial datasets used for SOC modelling, including climate forcings, LUH2 land-use forcings, and other static geo-environmental features required to reproduce the simulations.
 
 **Data Citation:** Majid, S. I. (2026). Geostatistical Dataset for Topsoil Organic Carbon Modelling in India Using CMIP6 Climate Projections and LUH2 Land Use Data [Data set]. Zenodo. https://doi.org/10.5281/zenodo.18884892
